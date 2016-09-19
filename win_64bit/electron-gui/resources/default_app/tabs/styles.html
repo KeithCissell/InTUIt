@@ -1,0 +1,165 @@
+<!-- We can't use a css document because we need a style tag with the 'is' attribute for polymer styles -->
+<!-- Some properties are "custom" css properties in the form '--element-subelement-property: ___' -->
+<!-- Some properties are "mixin" css rules in the form '--element-subelement: { ___ }' -->
+
+<style is="custom-style">
+    /* Main window styles */
+    body {
+        font-family: 'Roboto', 'Noto', sans-serif;
+        margin: 0px;
+    }
+
+    div.fit {
+        /* This is to ensure the scrollbar doesn't go beneath the footer */
+        margin-bottom: 50px;
+        overflow: auto;
+    }
+
+    iron-pages {
+        padding: 10px;
+        overflow: auto;
+    }
+
+		paper-button {
+			border-radius: 7px;
+		}
+
+    /* Header and tabs styles */
+		paper-toolbar.Header {
+			--paper-toolbar: {
+						background: #3f51d0;
+        }
+		}
+
+    paper-header-panel h1 {
+      left: 20px;
+      position: relative;
+      width: 95%;
+    }
+
+    #network_id {
+      --paper-input-container-color: white;
+      --paper-input-container-focus-color: white;
+      --paper-input-container-input: {
+        color: white;
+      }
+    }
+
+    paper-tabs {
+        --paper-tabs-selection-bar-color: lightgray;
+        --paper-tabs: {
+            font-size: 16pt;
+            margin-bottom: 10px;
+        }
+    }
+
+    paper-tab[disabled] {
+        background-color: #777777;
+        color: black;
+    }
+
+    paper-tab.iron-selected {
+        background-color: #192690;
+    }
+
+    /* Styling internal elements */
+    iron-pages * paper-input, iron-pages * paper-dropdown-menu {
+        display: inline-block;
+        width: 100%;
+    }
+
+    iron-pages paper-button {
+      background-color: #3f51d0;
+      color: rgb(240, 238, 235);
+    }
+
+    .device.toggle {
+        margin-right: 0px;
+    }
+
+    /* Footer styles */
+    paper-toolbar.Footer {
+        --paper-toolbar-height: 50px;
+
+        --paper-toolbar: {
+            background: #3f51d0;
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+        }
+    }
+
+    paper-input.Footer {
+        width: 100px;
+
+        --paper-input-container-color: white;    /* Covers labels, underline, etc. */
+        --paper-input-container-focus-color: white;    /* Ensures label is white even when floating */
+        /* Typed text */
+        --paper-input-container-input: {
+            color: white;
+        }
+        --paper-input-container: {
+            margin-right: 20px;
+            padding-top: 0px;
+            width: 100px;
+        }
+    }
+
+    paper-menu.Footer {
+        --paper-menu: {
+            height: 30px;
+            padding: 0px;
+        }
+    }
+
+    paper-menu.Footer paper-item {
+        --paper-item-min-height: 20px;
+
+        --paper-item: {
+            float: left;
+            padding: 5px 10px;
+            height: 10px;
+        }
+        --paper-item-selected: {
+            font-size: 1.2em;
+            text-decoration: underline;
+        }
+        --paper-item-focused: {
+            background-color: white;
+        }
+    }
+
+		#IntervalButton {
+				--paper-button: {
+						background: #e0e0e0;
+						color: green;
+						height: 30px;
+						width: 30px;
+						padding: 5px;
+						margin: 0px 20px;
+				}
+		}
+
+		paper-button[disabled] {
+				background: #777777;
+				color: black;
+		}
+
+    #TestButton {
+      --paper-button: {
+        background: #3240a6;
+        float: right;
+        height: 30px;
+        position: relative;
+        padding: 5px;
+        width: 150px;
+      }
+    }
+
+    #TestButton[toggles][active] {
+      --paper-button: {
+        background: #3848bb;
+        color: black;
+      }
+    }
+</style>

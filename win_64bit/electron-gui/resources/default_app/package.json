@@ -1,0 +1,9 @@
+{
+  "name": "electron",
+  "productName": "Electron",
+  "main": "main.js",
+  "dependencies": {
+    "jquery": "^2.2.0",
+		"azure-storage": "^0.10.0"
+  }
+}

@@ -1,0 +1,6 @@
+# Installing all packages
+Please note that, as there is a very high likelihood of us using the Polymer libraries for UI design, any devs working on the UI will need Bower installed on their system(s) globally; this will also require that you have [git](http://www.git-scm.com/) installed on your system, as it is one of Bower's dependencies. The official documentation can be found [here](http://bower.io/), but in short, open your command line and run `npm install -g bower` to install the latest version of Bower to your system (this is also how Bower is updated). Bower is not listed as a dependency in `package.json`, as it will be assumed that it has been globally installed as per the instructions above.
+
+After Bower has been installed, run `bower install` in the `default_app` directory to install all of Bower's dependencies. This will need to be done every time you branch code, as the `bower_components` folder is set to be ignored by git to prevent overloading the repository. Likewise, the `node_modules` folder and log files are also ignored for the same reasons.
+
+For the time being, npm will not be necessary to install any packages, though this may change at any time; if it does, this file will be updated to note that.
