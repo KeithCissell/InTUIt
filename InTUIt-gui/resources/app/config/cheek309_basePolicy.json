@@ -1,0 +1,548 @@
+{
+  "cs1501": {
+    "laser1": [
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "left",
+        "level": "down",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "left",
+        "level": "down",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "right",
+        "level": "down",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "right",
+        "level": "down",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "down",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "down",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn on",
+        "joystick": "left",
+        "level": "up",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "on",
+        "action": "turn on",
+        "joystick": "left",
+        "level": "up",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "right",
+        "level": "up",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "right",
+        "level": "up",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "up",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "up",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "left",
+        "level": "down",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "left",
+        "level": "down",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "right",
+        "level": "down",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "right",
+        "level": "down",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "down",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "down",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "left",
+        "level": "up",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "left",
+        "level": "up",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "right",
+        "level": "up",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "right",
+        "level": "up",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "up",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "up",
+        "masterbutton": "pressed"
+      }
+    ],
+    "laser2": [
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "left",
+        "level": "up",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "left",
+        "level": "up",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "on",
+        "action": "turn on",
+        "joystick": "right",
+        "level": "up",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn on",
+        "joystick": "right",
+        "level": "up",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "up",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "up",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "left",
+        "level": "down",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "left",
+        "level": "down",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "right",
+        "level": "down",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "right",
+        "level": "down",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "down",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "down",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "left",
+        "level": "up",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "left",
+        "level": "up",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "right",
+        "level": "up",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "right",
+        "level": "up",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "up",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "up",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "left",
+        "level": "down",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "left",
+        "level": "down",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "right",
+        "level": "down",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "right",
+        "level": "down",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "down",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "joystick": "center",
+        "level": "down",
+        "masterbutton": "pressed"
+      }
+    ]
+  },
+  "cs1502": {
+    "led": [
+      {
+        "state": "on",
+        "action": "turn off",
+        "masterbutton": "unpressed",
+        "heartbeat": "undetected"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "masterbutton": "unpressed",
+        "heartbeat": "undetected"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "masterbutton": "pressed",
+        "heartbeat": "undetected"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "masterbutton": "pressed",
+        "heartbeat": "undetected"
+      },
+      {
+        "state": "on",
+        "action": "turn on",
+        "masterbutton": "unpressed",
+        "heartbeat": "detected"
+      },
+      {
+        "state": "off",
+        "action": "turn on",
+        "masterbutton": "unpressed",
+        "heartbeat": "detected"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "masterbutton": "pressed",
+        "heartbeat": "detected"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "masterbutton": "pressed",
+        "heartbeat": "detected"
+      }
+    ],
+    "buzzer": [
+      {
+        "state": "on",
+        "action": "turn on",
+        "masterbutton": "unpressed",
+        "button": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn on",
+        "masterbutton": "unpressed",
+        "button": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "masterbutton": "pressed",
+        "button": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "masterbutton": "pressed",
+        "button": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "masterbutton": "unpressed",
+        "button": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "masterbutton": "unpressed",
+        "button": "unpressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "masterbutton": "pressed",
+        "button": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "masterbutton": "pressed",
+        "button": "unpressed"
+      }
+    ]
+  },
+  "cs1503": {
+    "buzzer1": [
+      {
+        "state": "on",
+        "action": "turn off",
+        "ir": "cold",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "ir": "cold",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "ir": "hot",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "ir": "hot",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "ir": "cold",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "ir": "cold",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "on",
+        "action": "turn on",
+        "ir": "hot",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn on",
+        "ir": "hot",
+        "masterbutton": "unpressed"
+      }
+    ],
+    "buzzer2": [
+      {
+        "state": "on",
+        "action": "turn off",
+        "temp": "cold",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "temp": "cold",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "temp": "hot",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "temp": "hot",
+        "masterbutton": "pressed"
+      },
+      {
+        "state": "on",
+        "action": "turn off",
+        "temp": "cold",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn off",
+        "temp": "cold",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "on",
+        "action": "turn on",
+        "temp": "hot",
+        "masterbutton": "unpressed"
+      },
+      {
+        "state": "off",
+        "action": "turn on",
+        "temp": "hot",
+        "masterbutton": "unpressed"
+      }
+    ]
+  }
+}

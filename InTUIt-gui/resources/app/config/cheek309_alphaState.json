@@ -1,0 +1,151 @@
+{
+  "cs1501": {
+    "joystick": {
+      "states": [
+        "left",
+        "right",
+        "center"
+      ],
+      "dependencies": [],
+      "actions": []
+    },
+    "level": {
+      "states": [
+        "up",
+        "down"
+      ],
+      "dependencies": [],
+      "actions": []
+    },
+    "laser1": {
+      "states": [
+        "on",
+        "off"
+      ],
+      "dependencies": [
+        "cs1501:joystick",
+        "cs1501:level",
+        "cs1502:masterbutton"
+      ],
+      "actions": [
+        "turn on",
+        "turn off"
+      ]
+    },
+    "laser2": {
+      "states": [
+        "on",
+        "off"
+      ],
+      "dependencies": [
+        "cs1501:joystick",
+        "cs1501:level",
+        "cs1502:masterbutton"
+      ],
+      "actions": [
+        "turn on",
+        "turn off"
+      ]
+    }
+  },
+  "cs1502": {
+    "masterbutton": {
+      "states": [
+        "pressed",
+        "unpressed"
+      ],
+      "dependencies": [],
+      "actions": []
+    },
+    "button": {
+      "states": [
+        "pressed",
+        "unpressed"
+      ],
+      "dependencies": [],
+      "actions": []
+    },
+    "heartbeat": {
+      "states": [
+        "detected",
+        "undetected"
+      ],
+      "dependencies": [],
+      "actions": []
+    },
+    "led": {
+      "states": [
+        "on",
+        "off"
+      ],
+      "dependencies": [
+        "cs1502:masterbutton",
+        "cs1502:heartbeat"
+      ],
+      "actions": [
+        "turn on",
+        "turn off"
+      ]
+    },
+    "buzzer": {
+      "states": [
+        "on",
+        "off"
+      ],
+      "dependencies": [
+        "cs1502:masterbutton",
+        "cs1502:button"
+      ],
+      "actions": [
+        "turn on",
+        "turn off"
+      ]
+    }
+  },
+  "cs1503": {
+    "ir": {
+      "states": [
+        "hot",
+        "cold"
+      ],
+      "dependencies": [],
+      "actions": []
+    },
+    "temp": {
+      "states": [
+        "hot",
+        "cold"
+      ],
+      "dependencies": [],
+      "actions": []
+    },
+    "buzzer1": {
+      "states": [
+        "on",
+        "off"
+      ],
+      "dependencies": [
+        "cs1503:ir",
+        "cs1502:masterbutton"
+      ],
+      "actions": [
+        "turn on",
+        "turn off"
+      ]
+    },
+    "buzzer2": {
+      "states": [
+        "on",
+        "off"
+      ],
+      "dependencies": [
+        "cs1503:temp",
+        "cs1502:masterbutton"
+      ],
+      "actions": [
+        "turn on",
+        "turn off"
+      ]
+    }
+  }
+}
