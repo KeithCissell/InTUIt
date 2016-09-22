@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html>
-<!--
+   <!--
+      InTUIt GUI: A comprehensive GUI to create a user-defined automated network of devices
+      Developed by: Chris Franklyn, Nick Delamora, Jess Geiger, Mitch Marlow, Keith Cissell
+      Last Updated: 9/21/2016
+      -->
+   <head>
+      <meta charset = "utf-8" />
+      <title>IoT Policy Management System</title>
+      <!-- Style imports -->
+      <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="./css/index.css">
+      <!-- Top Loading Script Imports -->
+      <script src="./js/html_include.js"></script>
+   </head>
 
--->
-<head>
-  <meta charset = "utf-8" />
-  <title>IoT Policy Management System</title>
+   <body>
+      <nav class="navbar  navbar-dark bg-inverse">
+         <ul class="nav navbar-nav">
+            <li class="navbar-brand">InTUIt IoT Network Creator </li>
+            <div class= "nav-stats">
+               <li>User: No User Logged In</li>
+               <li>Network: No Network Defined</li>
+            </div>
+            <!--
+               <li class="nav-item active">
+                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+               </li>
+               -->
+         </ul>
+      </nav>
 
-  <!-- Style imports -->
-  <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs nav-justified" role="tablist">
+         <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#edit" role="tab">Edit Network</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#status" role="tab">Network Status</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#assign" role="tab">Assignment</a>
+         </li>
+      </ul>
 
-  <!-- Top Loading Script Imports -->
-  <script src="./js/html_include.js"></script>
+      <!-- Tab panes -->
+      <div class="tab-content">
+         <div class="tab-pane active" id="edit" role="tabpanel">
+            <div w3-include-html="./tabs/edit_network.html"></div>
+         </div>
+         <div class="tab-pane" id="status" role="tabpanel">
+            <div w3-include-html="./tabs/network_status.html"></div>
+         </div>
+         <div class="tab-pane" id="assign" role="tabpanel">
+            <div w3-include-html="./tabs/assignment.html"></div>
+         </div>
+      </div>
 
-</head>
+      <!-- Script imports for bootstrap here -->
+      <script src="./js/index.js"></script>
+      <script src="./js/tether.min.js"></script>
+      <script src="./js/bootstrap.min.js"></script>
+      <!-- Runs the function to include html docs -->
+      <script> w3IncludeHTML();</script>
 
-<body>
-
-<nav class="navbar navbar-dark bg-inverse">
-  <ul class="nav navbar-nav">
-    <nav class="navbar-brand">InTUIt IoT Network Creator</nav>
-	<!--
-    <li class="nav-item active">
-      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-    </li>
-	-->
-  </ul>
-</nav>
-
-
-
-
-<!-- Nav tabs -->
-<ul class="nav nav-tabs nav-justified" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Add</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Edit</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#messages" role="tab">View Network</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a>
-  </li>
-</ul>
-
-<!-- Tab panes -->
-<div class="tab-content">
-  <div class="tab-pane active" id="home" role="tabpanel"> <div w3-include-html="./tabs/add_policy.html"></div> </div>
-  <div class="tab-pane" id="profile" role="tabpanel"></div>
-  <div class="tab-pane" id="messages" role="tabpanel"></div>
-  <div class="tab-pane" id="settings" role="tabpanel"></div>
-</div>
-
-
-
-  <!-- Script imports for bootstrap here -->
-  <script src="./js/index.js"></script>
-  <script src="./js/tether.min.js"></script>
-  <script src="./js/bootstrap.min.js"></script>
-  <!-- runs the function to include html docs -->
-  <script> w3IncludeHTML();</script>
-
-</body>
+   </body>
 </html>
