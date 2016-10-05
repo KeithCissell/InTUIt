@@ -20,14 +20,9 @@
          <ul class="nav navbar-nav">
             <li class="navbar-brand">InTUIt IoT Network Creator </li>
             <div class= "nav-stats">
-               <li>User: No User Logged In</li>
-               <li>Network: No Network Defined</li>
+               <li id="user-name"></li>
+               <li id="network-name"></li>
             </div>
-            <!--
-               <li class="nav-item active">
-                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-               </li>
-               -->
          </ul>
       </nav>
 
@@ -56,6 +51,8 @@
             <div w3-include-html="./tabs/assignment.html"></div>
          </div>
       </div>
+
+      <div w3-include-html="./tabs/modals/add_device.html"></div>
 
       <!-- Script imports for bootstrap here -->
       <script src="./js/index.js"></script>
