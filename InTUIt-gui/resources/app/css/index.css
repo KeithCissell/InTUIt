@@ -21,11 +21,10 @@ Last Modified: 9/21/206
   float: right;
 }
 
-<<<<<<< HEAD
 .text-center {
   text-align: center;
 }
-=======
+
 .tool {
 	font-size: 15pt;
 	color: #ffffff;
@@ -52,5 +51,3 @@ Last Modified: 9/21/206
 	margin-top: 5%;
 	margin-bottom: 10%;
 }
-
->>>>>>> origin/Keith_Cissell
