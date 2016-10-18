@@ -16,11 +16,34 @@ var ndfFile = username + '-' + networkName + '.ndf';
 console.log(ndfFile); //should show the expected file name in the chrome console
 
 
+//ACU class---------------------------------------------
+function ACU(name, states, dependencies, actions) {
+	this.name = name;
+	this.states = states;
+	this.dependencies = dependencies;
+	this.actions = actions;
+	this.printInfo = function printInfo(stream){
+		stream.write("\"" + this.name + "\": {\"states\": [" + this.states + "], \"actions\": [" + this.actions + 
+		"], \"dependencies\": [" + this.dependencies + "]}");
+	}
+}
+//-------------------------------------------------------
+
+
 //script that executes once index page is fully loaded
-$('document').ready(function() {
+$(document).ready(function() {
   //Populate the Username and Network Fields bassed on Login
   $('#user-name').html('User: ' + username);
   $('#network-name').html('Network: ' + networkName);
+  $('#deviceTable').DataTable({
+	  "paging": true,
+	  "iDisplayLength": 10,
+	  //"columns": ['Device Name', 'States', 'Actions', 'Functional Dependencies'],
+	  "ajax": {
+	    "url": './json/devices.json',
+		"dataSrc": 'tableData'
+	  }
+  });
 });
 
 //Function to construct the NDF file for a user network
