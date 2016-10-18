@@ -20,6 +20,7 @@
          <ul class="nav navbar-nav">
             <li class="navbar-brand">InTUIt IoT Network Creator </li>
             <div class= "nav-stats">
+            <button type="button" class="btn btn-primary btn-large btn-block" data-toggle="modal" data-target="#login-modal">Login</button>
                <li id="user-name"></li>
                <li id="network-name"></li>
             </div>
@@ -35,7 +36,7 @@
 						<input type="text" class="form-control search-bar" id="exampleInputAmount" placeholder="Search">
 						<button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#add-device-modal">Add Device</button>
 						<button type="button" class="btn btn-primary btn-lg btn-block">Remove Device</button>
-						<button type="button" class="btn btn-primary btn-lg btn-block">Add Area</button>
+						<button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#add-area-modal">Add Area</button>
 						<button type="button" class="btn btn-primary btn-lg btn-block">Remove Area</button>
 						<button type="button" class="btn btn-primary btn-lg btn-block">Create Policy</button>
 						<button type="button" class="btn btn-primary btn-lg btn-block">Remove Policy</button>
@@ -87,6 +88,9 @@
 	  -->
 
       <div w3-include-html="./tabs/modals/add_device.html"></div>
+      <div w3-include-html="./tabs/modals/add_area.html"></div>
+      <div w3-include-html="./tabs/modals/login_modal.html"></div>
+
 
       <!-- Script imports for bootstrap here -->
       <script src="./js/index.js"></script>
