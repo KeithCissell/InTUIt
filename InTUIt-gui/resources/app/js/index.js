@@ -17,6 +17,8 @@ var ndfFilename = username + '-' + networkName + '.ndf'; //file name to write ND
 var areaList = new Array(); //Array of all areas in the Network
 var deviceList = new Array(); //Array of all ACUs in the Network
 
+var deviceTable;
+
 
 //Area Class-------------------------------------------------------------------
 function Area(areaName) {
@@ -57,19 +59,37 @@ $(document).ready(function() {
   //Populate the Username and Network Fields bassed on Login
   $('#user-name').html('User: ' + username);
   $('#network-name').html('Network: ' + networkName);
+
+  $('#addDeviceForm').submit(function(e){
+    e.preventDefault(); //prevent form from redirect
+    setTimeout(function(){ //allow addDevice to execute before refresh
+      deviceTable.ajax.reload();
+      $('#addDeviceForm')[0].reset();
+    }, 100);
+    addDevice();
+  });
+
+  $('#addAreaForm').submit(function(e){
+    e.preventDefault(); //prevent form from redirect
+    this.reset(); //resets the fields within the form
+  });
+
 });
 
 //Function to construct the NDF file for a user network
-function buildNDF(tempDevice) {
+$('#submitNDF').click(function buildNDF() {
   var stream = fs.createWriteStream('./resources/app/ndf/' + ndfFilename);
   stream.write(username + ', ' + networkName + '\n');
-  stream.write(tempDevice.printACU());
+  for (var i; i < areaList.length; i++) {
+    stream.write(i.printArea());
+  }
   stream.end();
-}
+});
 
 //ADDING A DEVICE INTO NETWORK
 function addDevice() {
   var tempDevice = new ACU($('#deviceName').val(), $('#deviceStates').val(), $('#deviceDependencies').val(), $('#deviceActions').val());
+  deviceList.push(tempDevice); //Adds device to JS array of device objects
   var date = new Date();
 
   //function call to add the device to the stored json of devices
@@ -81,23 +101,21 @@ function addDevice() {
     stream.write(JSON.stringify(json));
     stream.end();
   });
-
-  deviceList.push(tempDevice); //Adds device to JS array of device objects
-  buildNDF(tempDevice);
 }
 
 //ADDING AN AREA INTO NETWORK
 function addArea() {
-  var tempArea = newArea($('#areaName').val());
+  var tempArea = new Area($('#areaName').val());
   areaList.push(tempArea); //Adds area to JS array of area objects
 }
 
 //Create Device Datatable when button to summon modal is clicked
 $('#add-device-button').click(function() {
   if (!($.fn.dataTable.isDataTable('#deviceTable'))){ //if the datatable isn't created, make it
-    $('#deviceTable').DataTable({
+    deviceTable = $('#deviceTable').DataTable({
   	  "paging": true,
-  	  "iDisplayLength": 10,
+  	  "iDisplayLength": 5,
+      "lengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"]],
       "responsive": true,
       "autoWidth": false,
       "order": [[0, 'desc']],
