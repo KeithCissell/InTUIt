@@ -69,15 +69,17 @@ $(document).ready(function() {
     addDevice();
   });
 
+   //THIS DOESN'T WORK FOR SOME REASON
   $('#addAreaForm').submit(function(e){
+    console.log("test");
     e.preventDefault(); //prevent form from redirect
     this.reset(); //resets the fields within the form
   });
-
 });
 
 //Function to construct the NDF file for a user network
 $('#submitNDF').click(function buildNDF() {
+  console.log("button works");
   var stream = fs.createWriteStream('./resources/app/ndf/' + ndfFilename);
   stream.write(username + ', ' + networkName + '\n');
   for (var i; i < areaList.length; i++) {
