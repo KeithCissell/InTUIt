@@ -4,6 +4,10 @@ Programmed by: Chris Franklyn
 Last Modified: 9/21/206
 */
 
+.container-fluid {
+	padding-left: 0;
+}
+
 .tab-container {
   margin-left: 2%;
   margin-right: 2%;
