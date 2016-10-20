@@ -9,10 +9,11 @@ Last Modified: 9/19/2016
 window.$ = window.jQuery = require('./js/jquery.min.js');
 //for file system reading/writing
 var fs = require('fs');
+//for query string parsing
+var qs = require('querystring');
 
 var username = 'generic'; //Variable for logged in user. Default is 'generic'
 var networkName = 'network'; //Variable for current network. Default is 'network'
-var ndfFilename = username + '-' + networkName + '.ndf'; //file name to write NDF to
 
 var areaList = new Array(); //Array of all areas in the Network
 var deviceList = new Array(); //Array of all ACUs in the Network
@@ -56,6 +57,11 @@ function ACU(name, states, dependencies, actions) {
 
 //script that executes once index page is fully loaded
 $(document).ready(function() {
+  var queryString = window.location.search
+  username = getQueryVariable('userName', queryString);
+  networkName = getQueryVariable('networkName', queryString);
+  var ndfFilename = username + '-' + networkName + '.ndf'; //file name to write NDF to
+
   //Populate the Username and Network Fields bassed on Login
   $('#user-name').html('User: ' + username);
   $('#network-name').html('Network: ' + networkName);
@@ -135,3 +141,16 @@ $('#add-device-button').click(function() {
     });
   }
 });
+
+//Returns query string value given a query string and search variable
+function getQueryVariable(variable, queryString) {
+  var query = queryString.substring(1);
+  var vars = query.split('&');
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split('=');
+    if (decodeURIComponent(pair[0]) == variable) {
+       return decodeURIComponent(pair[1]);
+    }
+  }
+  console.log('Query variable %s not found', variable);
+}
