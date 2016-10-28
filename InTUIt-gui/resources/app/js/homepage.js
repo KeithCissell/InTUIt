@@ -21,36 +21,110 @@ var deviceList = new Array(); //Array of all ACUs in the Network
 var deviceTable;
 
 
-//Area Class-------------------------------------------------------------------
-function Area(areaName) {
-  this.areaName = areaName;
-  this.acuList = new Array();
+//Network Class----------------------------------------------------------------
+var Network = function (networkName) {
+    this.networkName = networkName;
+    this.areaList = new Array(); //Array of all areas in the Network
 
-  this.addACU = function addACU(acu) {
-    this.acuList.push(acu);
-  }
-
-  this.printArea = function printArea() {
-    var areaString = "{" + this.areaName + ":{";
-    for(var index = 0; index < acuList.length; index++){
-      areaString += acuList[index].printACU();
+    this.addArea = function addArea(Area) {
+        this.areaList.push(Area);
     }
-    return areaString;
-  }
+
+    this.printNetwork = function printNetwork() {
+        var areaString = "{"
+        for (var i; i < currentNetwork.areaList.length; i++) {
+            areaString += this.areaList[i].printArea();
+        }
+        areaString += "}";
+    }
+
+    this.printNetworkPolicies = function printNetworkPolicies() {
+        var areaString = "{"
+        for (var i; i < currentNetwork.areaList.length; i++) {
+            areaString += this.areaList[i].printAreaPolicies();
+        }
+        areaString += "}";
+    }
+}
+//-----------------------------------------------------------------------------
+
+//Area Class-------------------------------------------------------------------
+var Area = function (areaName) {
+    this.areaName = areaName;
+
+    this.acuList = new Array(); //Array of all ACUs in the Area
+
+
+    this.addACU = function addACU(acu) {
+        this.acuList.push(acu);
+    }
+
+    this.printArea = function printArea() {
+        var areaString = "\"" + this.areaName + "\" :{";
+        for(var i = 0; index < acuList.length; i++){
+            areaString += acuList[i].printACU();
+        }
+        areaString += "}"
+        return areaString;
+    }
+
+    this.printAreaPolicies = function printAreaPolicies() {
+        var areaString = "\"" + this.areaName + "\" :{";
+        for(var i = 0; index < acuList.length; i++){
+            areaString += acuList[i].printACUPolicies();
+        }
+        areaString += "}"
+        return areaString;
+    }
 }
 //-----------------------------------------------------------------------------
 
 //ACU Class--------------------------------------------------------------------
-function ACU(name, states, dependencies, actions) {
-	this.name = name;
-	this.states = states;
-	this.dependencies = dependencies;
-	this.actions = actions;
+var ACU = function (name, states, dependencies, actions) {
+    this.name = name;
+    this.states = states;
+    this.dependencies = dependencies;
+    this.actions = actions;
+    this.area = 'areaName'; //temporarily hard coded in
 
-	this.printACU = function printACU(){
-		return "\"" + this.name + "\":{\"states\": [" + this.states + "], \"actions\": [" + this.actions +
+    this.policyList = new Array(); //Array of all Policies associated to ACU
+
+    this.addPolicy = function addPolicy(Policy) {
+        this.policyList.push(Policy);
+    }
+
+    this.printACU = function printACU(){
+        return "\"" + this.name + "\":{\"states\": [" + this.states + "], \"actions\": [" + this.actions +
 		"], \"dependencies\": [" + this.dependencies + "]}";
-	}
+    }
+
+    this.printACUPolicies = function printACUPolicies() {
+        var ACUString = "\"" + this.name + "\" :[";
+        for(var i = 0; index < policyList.length; i++){
+            ACUString += policyList[i].printPolicy();   //*****Coma Syntax Error for NDF*****
+        }
+        ACUString += "]"
+        return areaString;
+    }
+}
+//-----------------------------------------------------------------------------
+
+//Policy Class-----------------------------------------------------------------
+var Policy = function (area, device, givenStates, command) {
+    this.area = area;
+    this.device = device;
+    this.givenStates, givenStates;
+    this.command = command;
+
+    this.printPolicy = function printPolicy() {
+        return "\"Given {" + givenStates + "} associate " + command + "\"";
+    }
+
+    //Display function for possible 'Pending Commands' implimentation
+    this.displayPolicy = function displayPolicy(){
+        return "\"" + area + "\" :{\"" + device + "\": [\"Given {" + givenStates +
+            "} associate " + command + "\"]}";
+    }
 }
 //-----------------------------------------------------------------------------
 
@@ -66,7 +140,13 @@ $(document).ready(function() {
   $('#user-name').html('User: ' + username);
   $('#network-name').html('Network: ' + networkName);
 
-  $('#addDeviceForm').submit(function(e){
+  $('#changes').load('./html/current_changes.html');
+  $('#add-area-load').load('./html/modals/add_area.html');
+  $('#add-device-load').load('./html/modals/add_device.html');
+  $('#add-policy-load').load('./html/modals/create_policy.html');
+
+  $('#addDeviceFor').submit(function(e){
+    console.log('test');
     e.preventDefault(); //prevent form from redirect
     setTimeout(function(){ //allow addDevice to execute before refresh
       deviceTable.ajax.reload();
@@ -75,7 +155,6 @@ $(document).ready(function() {
     addDevice();
   });
 
-   //THIS DOESN'T WORK FOR SOME REASON
   $('#addAreaForm').submit(function(e){
     console.log("test");
     e.preventDefault(); //prevent form from redirect
@@ -142,7 +221,7 @@ $('#add-device-button').click(function() {
   }
 });
 
-//Returns query string value given a query string and search variable
+//Returns query string value given
 function getQueryVariable(variable, queryString) {
   var query = queryString.substring(1);
   var vars = query.split('&');

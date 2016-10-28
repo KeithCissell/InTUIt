@@ -1,0 +1,86 @@
+/*
+Index.css: Styles for the skeleton of the UI
+Programmed by: Chris Franklyn
+Last Modified: 10/27/206
+*/
+
+/* For full height responsiveness */
+body, html, .row {
+	height: 100% !important;
+}
+
+/*positions the row container right below the nav bar*/
+.container-fluid {
+	position: absolute;
+	top: 63px;
+	bottom: 0;
+
+}
+
+/* Makes tab content fit the bottom left portion of app screen
+while being responsive to its conainer */
+.tab-content {
+	position: absolute;
+	top: 42px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  padding-left: .5em;
+	padding-right: .5em;
+	overflow: auto;
+}
+
+/* class for making an element the height of its containing element */
+.max-height {
+	height: 100%;
+}
+
+.navbar-brand {
+  font-size: 20pt;
+}
+
+.nav-stats {
+  float: right;
+}
+
+/* Class to remove margins */
+.no-margin {
+	margin: 0;
+	display: table;
+}
+
+/* Class to remove padding */
+.no-padding {
+	padding: 0;
+}
+
+/* Class to center text in its element */
+.text-center {
+  text-align: center;
+}
+
+.tool {
+	font-size: 15pt;
+	color: #ffffff;
+}
+
+.icon {
+	height: 15%;
+	width: 15%;
+	margin-right: 5%;
+	margin-left: 5%;
+}
+
+.toolbar {
+    /*margin: 0;
+    padding: 0;
+    width: 20%;*/
+    background-color: #666666;
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+
+.search-bar {
+	margin-top: 5%;
+	margin-bottom: 10%;
+}
