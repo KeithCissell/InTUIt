@@ -1,0 +1,44 @@
+<!-- Modal for Creating a Policy -->
+<div id="create-policy-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bigModal">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title text-center" id="myModalLabel3">Crerate a Policy</h4>
+      </div>
+      <div class="modal-body">
+
+        <form id="createPolicyForm">
+          <div class="form-group">
+					<div class="row">
+						<div class="col-lg-6">
+            <label for="area">Area:</label>
+            <input type="text" class="form-control" id="area" placeholder="AreaName" required>
+						</div>
+						<div class="col-lg-6">
+            <label for="device">Device:</label>
+            <input type="text" class="form-control" id="device" placeholder="Laser1" required>
+						</div>
+					</div><br>
+					<div class="row">
+						<div class="col-lg-12">
+            <label for="givenStates">Given States:</label>
+            <input type="text" class="form-control" id="givenStates" aria-describedby="actionsHelp" placeholder="on, center" required>
+						            <small id="statesHelp" class="form-text text-muted">Separate states with a comma ,</small> <br>
+            <label for="associatedCommand">Associated Command:</label>
+            <input type="text" class="form-control" id="associatedCommand" placeholder="gpio.output(20,0)" required> <br>
+						</div>
+					</div>
+					</div>
+          <hr>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          <input type="submit" class="btn btn-primary" value="Create Policy">
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>

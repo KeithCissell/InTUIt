@@ -1,0 +1,56 @@
+<!-- Modal for Adding a device -->
+<div id="add-device-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg" role="document">
+    <div class="modal-content bigModal">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title text-center" id="myModalLabel">Add a Device</h4>
+      </div>
+      <div class="modal-body">
+
+        <form id="addDeviceForm">
+          <div class="form-group">
+            <div class="row">
+            <div class ="col-lg-3">
+            <label for="deviceName">Device Name:</label>
+            <input type="text" class="form-control" id="deviceName" placeholder="Laser1" required>
+          </div>
+            <div class="col-lg-3">
+            <label for="deviceStates">Possible Device States:</label>
+            <input type="text" class="form-control" id="deviceStates" aria-describedby="statesHelp" placeholder="On, Off, ect." required>
+          </div>
+          <div class="col-lg-3">
+            <label for="deviceActions">Device Actions:</label>
+            <input type="text" class="form-control" id="deviceActions" aria-describedby="actionsHelp" placeholder="gpio.output(20,1), gpio.output(20,0), ect" required>
+          </div>
+          <div class="col-lg-3">
+            <label for="deviceDependencies">Functional Dependencies:</label>
+            <input type="text" class="form-control" id="deviceDependencies" placeholder="Area:ACU, Area:ACU2, ect" required>
+          </div>
+          </div>
+        </div>
+
+		  <hr>
+      <br>
+		  <table id="deviceTable" class="display compact">
+		    <thead>
+		      <tr><th>Date Added</th><th>Device Name</th><th>States</th><th>Actions</th><th>Functional Dependencies</th></tr>
+		    <thead>
+		    <tbody>
+
+		    </tbody>
+		  </table>
+
+          <hr>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          <input type="submit" class="btn btn-primary" value="Add Device">
+
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>

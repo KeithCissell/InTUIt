@@ -1,0 +1,27 @@
+/*
+Index.css: Styles for the skeleton of the UI
+Programmed by: Chris Franklyn, Jess Geiger
+Last Modified: 10/18/2016
+*/
+
+body {
+	background-color: gray;
+}
+
+.container {
+	background-color: #666666;
+	margin: 100px auto;
+	text-align: center;
+	padding: 50px;
+	position: relative;
+	color: white;
+}
+
+h1 {
+	font-style: italic;
+}
+
+.login-box {
+	max-width: 300px;
+	margin: 0 auto;
+}
