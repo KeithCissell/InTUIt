@@ -1,2 +1,0 @@
-NDF, generic, network
-Laser1 On, Off gpio.output(20,1) Area:Acu
