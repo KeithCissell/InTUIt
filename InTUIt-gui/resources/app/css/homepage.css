@@ -75,6 +75,7 @@ while being responsive to its conainer */
     /*margin: 0;
     padding: 0;
     width: 20%;*/
+	  text: #000000;
     background-color: #666666;
     height: 100%; /* Full height */
     overflow: auto; /* Enable scrolling if the sidenav has too much content */
@@ -83,4 +84,8 @@ while being responsive to its conainer */
 .search-bar {
 	margin-top: 5%;
 	margin-bottom: 10%;
+}
+
+.white {
+	color: white;
 }
