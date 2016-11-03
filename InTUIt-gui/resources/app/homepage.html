@@ -183,7 +183,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="modal-title text-center" id="myModalLabel3">Crerate a Policy</h4>
+            <h4 class="modal-title text-center" id="myModalLabel3">Create a Policy</h4>
           </div>
           <div class="modal-body">
             <form id="createPolicyForm">
@@ -232,9 +232,15 @@
           <div class="modal-body">
             <form id="removeDeviceForm">
 			  <div class="form-group">
-				<label for="areaSelect">Select Device:</label>
-				<select class="form-control" id="areaSelect">
-				  <option value="none" selected>No Devices Created</option>
+				<label for="areaSelect2">Select Area:</label>
+				<select class="form-control" id="areaSelect2">
+				  <option value="none" selected>No Area Selected</option>
+				</select>
+			  </div>
+			  <div id="ACURemoveOptions">
+			  <label for="deviceSelect">Devices:</label>
+			  <select class="form-control" id="deviceSelect">
+				  <option value="none" selected>No ACU Selected</option>
 				</select>
 			  </div>
               <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>

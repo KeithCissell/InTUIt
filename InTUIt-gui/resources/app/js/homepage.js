@@ -198,6 +198,7 @@ function addArea() {
   for (var i = 0; i < areaList.length; i++) {
 	  var area = areaList[i];
 	  $('#areaSelect').append('<option value="' + area.areaName + '">' + area.areaName +'</option>');
+	  $('#areaSelect2').append('<option value="' + area.areaName + '">' + area.areaName +'</option>');
   }
 }
 
@@ -205,8 +206,8 @@ function addArea() {
 function addDevice() {
   var tempDevice = new ACU($('#deviceName').val(), $('#deviceStates').val(), $('#deviceDependencies').val(), $('#deviceActions').val(), $('#areaSelect').val());
   var deviceArea = findArea($('#areaSelect').val());
-  deviceArea.addACU(tempDevice);
-
+  deviceArea.acuList.push(tempDevice);
+  
   var date = new Date();
 
   //function call to add the device to the stored json of devices
@@ -291,23 +292,27 @@ $('#add-policy-button').click(function() {
 });
 
 $('#remove-device-button').click(function() {
-  if (deviceList.length == 0) {
-    alert("No devices have been created. Please create one");
-  }
-  else {
     $('#remove-device-modal').modal({
       focus: true
     });
-  }
 });
 
 //event fires upon adding a device
 $('#removeDeviceForm').submit(function(e){
   e.preventDefault(); //prevent form from redirect
-  removeDevice($('#areaSelect').val(), $('#deviceSelect').val());
+  removeDevice();
 });
 
-function removeDevice(area, device) {
+function removeDevice() {
+  $('#areaSelect2').onselect()=function(){
+	  console.log($('#areaSelect2').val());
+	  $('#deviceSelect').html("");
+	  var areaSelected = findArea($('#areaSelect2').val());
+	  for (var i = 0; i < areaSelected.acuList.length; i++) {
+		  var device = areaSelected.acuList[i];
+		  $('#deviceSelect').append('<option value="' + device.acuName + '">' + device.acuName +'</option>');
+  }
+  }
   var deviceArea = findArea(area);
   var index1 = deviceArea.acuList.indexOf(device);
   var index2 = deviceList.indexOf(device);
