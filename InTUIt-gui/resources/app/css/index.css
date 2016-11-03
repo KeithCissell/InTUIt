@@ -21,6 +21,12 @@ Last Modified: 9/21/206
   float: right;
 }
 
+.navigation-panel {
+	height: 70%;
+	width: 70%;
+	margin: 5%;
+}
+
 .text-center {
   text-align: center;
 }
