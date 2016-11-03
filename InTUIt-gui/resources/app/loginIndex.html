@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+   <!--
+      InTUIt GUI: A comprehensive GUI to create a user-defined automated network of devices
+      Developed by: Chris Franklyn, Nick Delamora, Jess Geiger, Mitch Marlow, Keith Cissell
+      Last Updated: 9/21/2016
+      -->
+   <head>
+      <meta charset = "utf-8"/>
+      <title>IoT Policy Management System</title>
+      <!-- Style imports -->
+      <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="./css/login.css">
+   </head>
+
+   <body>
+     <div class="container">
+   		<h1>Welcome to InTUIt</h1>
+   		<form id="login">
+   			<div class="form-group">
+   				<label for="userName">User:</label>
+   				<input type="text" class="login-box form-control" id="userName"type="text" placeholder="User1" required> <br>
+   				<label for="networkName">Network: </label>
+   				<input type="text" class="login-box form-control" id="networkName" type="text" placeholder="GenericNetwork" required> <br>
+        </div>
+        <hr>
+        <button type="button" class="btn btn-primary">Create</button>
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </form>
+
+    </div>
+<!-- Script imports for bootstrap here -->
+   <script src="./js/login.js"></script>
+   <script src="./js/tether.min.js"></script>
+   <script src="./js/bootstrap.min.js"></script>
+
+</body>
+</html>
