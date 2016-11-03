@@ -1,72 +1,258 @@
 <!DOCTYPE html>
 <html>
-   <!--
-      InTUIt GUI: A comprehensive GUI to create a user-defined automated network of devices
-      Developed by: Chris Franklyn, Nick Delamora, Jess Geiger, Mitch Marlow, Keith Cissell
-      Last Updated: 9/21/2016
-      -->
-   <head>
-      <meta charset = "utf-8" />
-      <title>IoT Policy Management System</title>
-      <!-- Style imports -->
-      <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="./css/index.css">
-	    <link rel="stylesheet" type="text/css" href="./css/DataTables.css">
-      <!-- Top Loading Script Imports -->
-      <script src="./js/html_include.js"></script>
-   </head>
+  <!--
+    InTUIt GUI: A comprehensive GUI to create a user-defined automated network of devices
+    Developed by: Chris Franklyn, Nick Delamora, Jess Geiger, Mitch Marlow, Keith Cissell
+    Last Updated: 10/27/2016
+    -->
+  <head>
+    <meta charset = "utf-8"/>
+    <title>IoT Policy Management System</title>
+    <!-- Style imports -->
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/homepage.css">
+    <link rel="stylesheet" type="text/css" href="./css/DataTables.css">
+  </head>
 
-   <body>
+  <body>
+    <!--Top Navbar -->
+    <nav class="navbar navbar-dark bg-inverse">
+      <ul class="nav navbar-nav">
+        <li class="navbar-brand">InTUIt IoT Network Creator </li>
+        <div class= "nav-stats">
+          <li id="user-name"></li>
+          <li id="network-name"></li>
+        </div>
+      </ul>
+    </nav>
 
-      <nav class="navbar  navbar-dark bg-inverse">
-         <ul class="nav navbar-nav">
-            <li class="navbar-brand">InTUIt IoT Network Creator </li>
-            <div class= "nav-stats">
-               <li id="user-name"></li>
-               <li id="network-name"></li>
+	<!-- Sub Navbar Container -->
+    <div class="container-fluid no-padding">
+      <!-- Side Tool Bar -->
+      <div class="row no-margin">
+        <div class="col-sm-2 no-padding max-height">
+          <div class="toolbar">
+            <div class="navbar navbar-default" role="navigation">
+              <!--<input type="text" class="form-control search-bar" id="exampleInputAmount" placeholder="Search"> -->
+              <button type="button" id="add-area-button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#add-area-modal">Add Area</button>
+              <button type="button" id="remove-area-button" class="btn btn-primary btn-lg btn-block">Remove Area</button>
+              <button type="button" id="add-device-button" class="btn btn-primary btn-lg btn-block">Add Device</button>
+              <button type="button" id="remove-device-button" class="btn btn-primary btn-lg btn-block">Remove Device</button>
+              <button type="button" id="add-policy-button" class="btn btn-primary btn-lg btn-block">Create Policy</button>
+              <button type="button" id="remove-policy-button" class="btn btn-primary btn-lg btn-block">Remove Policy</button>
+              </br>
+              <a href="" class="tool"><img src="./images/settings-icon.png" class="icon" alt="Responsive image">Settings</a></br></br>
+              <a href="" class="tool"><img src="./images/help-icon.png" class="icon" alt="Responsive image">Help</a></br>
+              </br>
+              <button type="button" id="submitNDF" class="btn btn-default btn-lg btn-block">SUBMIT</button>
             </div>
-         </ul>
-      </nav>
+          </div>
+        </div>
+		<!-- End Side Tool Bar -->
 
-      <div class="container-fluid">
-	  <!-- Tool Bar -->
-		<div class="row">
-			<div class="col-lg-2">
-				<div class="toolbar">
-					<div class="navbar navbar-default" role="navigation">
-						<input type="text" class="form-control search-bar" id="exampleInputAmount" placeholder="Search">
-						<button type="button" id="add-device-button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#add-device-modal">Add Device</button>
-						<button type="button" id="remove-device-button" class="btn btn-primary btn-lg btn-block">Remove Device</button>
-						<button type="button" id="add-area-button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#add-area-modal">Add Area</button>
-						<button type="button" id="remove-area-button" class="btn btn-primary btn-lg btn-block">Remove Area</button>
-						<button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#create-policy-modal">Create Policy</button>
-						<button type="button" id="remove-policy-button" class="btn btn-primary btn-lg btn-block">Remove Policy</button>
-						</br>
-						<a href="" class="tool"><img src="./images/settings-icon.png" class="icon" alt="Responsive image">Settings</a></br></br>
-						<a href="" class="tool"><img src="./images/pending-commands-icon.png" class="icon" alt="Responsive image">Pending Commands</a></br></br>
-						<a href="" class="tool"><img src="./images/help-icon.png" class="icon" alt="Responsive image">Help</a></br>
-						</br>
-						<button type="button" id="submitNDF" class="btn btn-default btn-lg btn-block">SUBMIT</button>
-					</div>
-				</div>
-			</div>
-		  </div>
+		<!--Display Area -->
+        <div class="col-sm-10 no-padding max-height">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs nav-justified" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#changes" role="tab">Current Changes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#networkView" role="tab">View Network</a>
+            </li>
+          </ul>
+          <!-- Tab Content -->
+          <div class="tab-content">
+            <div class="tab-pane active" id="changes" role="tabpanel">
+              <h2> Current Changes to Network </h2> <br>
+
+              <table id="changesTable" class="display compact">
+                <thead>
+                  <tr><th>Date</th><th>Change Type</th><th>Description</th></tr>
+                <thead>
+                <tbody>
+
+                </tbody>
+              </table>
+
+            </div>
+            <div class="tab-pane" id="networkView" role="tabpanel"></div>
+          </div>
+        </div>
       </div>
+	  <!-- End Display Area -->
+    </div>
+	<!-- End Container -->
 
-      <div w3-include-html="./tabs/modals/add_device.html"></div>
-      <div w3-include-html="./tabs/modals/add_area.html"></div>
-      <div w3-include-html="./tabs/modals/create_policy.html"></div>
+<!------------- End Page HTML. Hidden Modal HTML Below --------------------->
+
+    <!-- Modal for Adding an area -->
+    <div id="add-area-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title text-center" id="myModalLabel2">Add an Area</h4>
+          </div>
+          <div class="modal-body">
+            <form id="addAreaForm">
+              <div class="form-group">
+                <label for="areaName">Area Name:</label>
+                <input type="text" class="form-control" id="areaName" placeholder="Cheek212" required>
+              </div>
+              <hr>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+              <input type="submit" class="btn btn-primary" value="Add Area">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End modal -->
+
+    <!-- Modal for Adding a device -->
+    <div id="add-device-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog  modal-lg" role="document">
+        <div class="modal-content bigModal">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title text-center" id="myModalLabel">Add a Device</h4>
+          </div>
+          <div class="modal-body">
+            <form id="addDeviceForm">
+			  <div class="form-group">
+				<label for="areaSelect">Select Area:</label>
+				<select class="form-control" id="areaSelect">
+				  <option value="none" selected>No Areas Created</option>
+				</select>
+			  </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class ="col-lg-3">
+                    <label for="deviceName">Device Name:</label>
+                    <input type="text" class="form-control" id="deviceName" placeholder="Laser1" required>
+                  </div>
+                  <div class="col-lg-3">
+                    <label for="deviceStates">Possible Device States:</label>
+                    <input type="text" class="form-control" id="deviceStates" aria-describedby="statesHelp" placeholder="On, Off, ect." required>
+                  </div>
+                  <div class="col-lg-3">
+                    <label for="deviceActions">Device Actions:</label>
+                    <input type="text" class="form-control" id="deviceActions" aria-describedby="actionsHelp" placeholder="gpio.output(20,1), gpio.output(20,0), ect" required>
+                  </div>
+                  <div class="col-lg-3">
+                    <label for="deviceDependencies">Functional Dependencies:</label>
+                    <input type="text" class="form-control" id="deviceDependencies" placeholder="Area:ACU, Area:ACU2, ect" required>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <br>
+              <table id="deviceTable" class="display compact">
+                <thead>
+                  <tr>
+                    <th>Date Added</th>
+                    <th>Device Name</th>
+                    <th>States</th>
+                    <th>Actions</th>
+                    <th>Functional Dependencies</th>
+                  </tr>
+                <thead>
+                <tbody>
+                </tbody>
+              </table>
+              <hr>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+              <input type="submit" class="btn btn-primary" value="Add Device">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Add Device Modal -->
+
+    <!-- Modal for Creating a Policy -->
+    <div id="create-policy-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content bigModal">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title text-center" id="myModalLabel3">Crerate a Policy</h4>
+          </div>
+          <div class="modal-body">
+            <form id="createPolicyForm">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <label for="policyArea">Area:</label>
+                    <input type="text" class="form-control" id="policyArea" placeholder="AreaName" required>
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="policyDevice">Device:</label>
+                    <input type="text" class="form-control" id="policyDevice" placeholder="Laser1" required>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <label for="givenStates">Given States:</label>
+                    <input type="text" class="form-control" id="givenStates" aria-describedby="actionsHelp" placeholder="on, center" required>
+                    <small id="statesHelp" class="form-text text-muted">Separate states with a comma ,</small> <br>
+                    <label for="associatedCommand">Associated Command:</label>
+                    <input type="text" class="form-control" id="associatedCommand" placeholder="gpio.output(20,0)" required> <br>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+              <input type="submit" class="btn btn-primary" value="Create Policy">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Create Policy Modal -->
+
+    <!-- Modal for Removing a device -->
+    <div id="remove-device-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog  modal-lg" role="document">
+        <div class="modal-content bigModal">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title text-center" id="myModalLabel">Remove a Device</h4>
+          </div>
+          <div class="modal-body">
+            <form id="removeDeviceForm">
+			  <div class="form-group">
+				<label for="areaSelect">Select Device:</label>
+				<select class="form-control" id="areaSelect">
+				  <option value="none" selected>No Devices Created</option>
+				</select>
+			  </div>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+              <input type="submit" class="btn btn-primary" value="Remove Device">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Remove Device Modal -->
 
 
-      <!-- Script imports -->
-      <script src="./js/homepage.js"></script>
-      <script src="./js/tether.min.js"></script>
-      <script src="./js/DataTables.js"></script>
-      <script src="./js/bootstrap.min.js"></script>
+	<!------------------------ End Modals ----------------------------->
 
-
-      <!-- Runs the function to include html docs -->
-      <script>w3IncludeHTML();</script>
-
-   </body>
+    <!-- Script imports upon page load completion -->
+    <script src="./js/homepage.js"></script>
+    <script src="./js/tether.min.js"></script>
+    <script src="./js/DataTables.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+  </body>
 </html>
