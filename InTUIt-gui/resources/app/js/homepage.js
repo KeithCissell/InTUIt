@@ -144,6 +144,8 @@ $(document).ready(function() {
   $('#add-area-load').load('./html/modals/add_area.html');
   $('#add-device-load').load('./html/modals/add_device.html');
   $('#add-policy-load').load('./html/modals/create_policy.html');
+  $('#rm-area-load').load('./html/modals/remove_area.html');
+  
 
   $('#addDeviceFor').submit(function(e){
     console.log('test');

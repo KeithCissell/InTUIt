@@ -15,23 +15,19 @@ var networkName; //Variable for current network. Default is 'network'
 
 
 //script that executes once index page is fully loaded
-<<<<<<< HEAD
-$('document').ready(function() {
+//$('document').ready(function() {
 	
-	document.getElementById("login-btn").onclick = function () {
-		login();
-	};
+	//document.getElementById("login-btn").onclick = function () {
+		//login();
+	//};
 	
 	//call function to 
-=======
 $(document).ready(function() {
 
 	$("#login").submit(function(e) {
     e.preventDefault();
 		login();
 	});
-
->>>>>>> development
 });
 
 //script that executes once login buton is clicked - display modal
@@ -44,9 +40,6 @@ $(document).ready(function() {
 function login() {
   userName = $('#userName').val();
   networkName = $('#networkName').val();
-<<<<<<< HEAD
-  window.location.assign('./tabs/homepage.html');
-=======
+  //window.location.assign('./tabs/homepage.html');
   window.location.assign('./homepage.html?userName=' + userName +'&networkName=' + networkName);
->>>>>>> development
 }
