@@ -231,25 +231,24 @@
           </div>
           <div class="modal-body">
             <form id="removeDeviceForm">
-			  <div class="form-group">
-				<label for="areaSelect2">Select Area:</label>
-				<select class="form-control" id="areaSelect2">
-				  <option value="none" selected>No Area Selected</option>
-				</select>
-			  </div>
-			  <div id="ACURemoveOptions">
-			  <label for="deviceSelect">Devices:</label>
-			  <select class="form-control" id="deviceSelect">
-				  <option value="none" selected>No ACU Selected</option>
-				</select>
-			  </div>
+			          <div class="form-group">
+				          <label for="areaSelect2">Select Area:</label>
+				          <select class="form-control" id="areaSelect2">
+                    <option value="none" selected>Select an Area</option>
+				          </select>
+			            <label for="deviceSelect">Devices:</label>
+                    <option value="none" selected>Select a Device</option>
+			            <select class="form-control" id="deviceSelect">
+				          </select>
+                  </div>
+                  <hr>
               <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
               <input type="submit" class="btn btn-primary" value="Remove Device">
             </form>
-          </div>
         </div>
       </div>
     </div>
+  </div>
     <!-- End Remove Device Modal -->
 
 

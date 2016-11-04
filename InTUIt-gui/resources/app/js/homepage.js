@@ -19,6 +19,9 @@ var ndfFilename = username + networkName + '.ndf';
 var areaList = new Array(); //Array of all areas in the Network
 var deviceList = new Array(); //Array of all ACUs in the Network
 
+var removeACU; //holds value of ACU to remove
+var removeACUArea; //holds value of area ACU to remove is in
+
 var deviceTable;
 var changesTable;
 
@@ -190,11 +193,21 @@ $(document).ready(function() {
   });
 });
 
+//event fires upon removing a device
+$('#removeDeviceForm').submit(function(e){
+  e.preventDefault(); //prevent form from redirect
+  if (confirm('Are you sure you want to remove ' + removeACU.acuName + ' from ' + removeACUArea.areaName + '?')) {
+    removeDevice();
+  }
+});
+
 
 //Adding an area into the network
 function addArea() {
   areaList.push(new Area($('#areaName').val()));
   $('#areaSelect').empty();
+  $('#areaSelect2').empty();
+  $('#areaSelect2').append('<option value=\"none\" selected>Select an Area</option>');
   for (var i = 0; i < areaList.length; i++) {
 	  var area = areaList[i];
 	  $('#areaSelect').append('<option value="' + area.areaName + '">' + area.areaName +'</option>');
@@ -207,7 +220,7 @@ function addDevice() {
   var tempDevice = new ACU($('#deviceName').val(), $('#deviceStates').val(), $('#deviceDependencies').val(), $('#deviceActions').val(), $('#areaSelect').val());
   var deviceArea = findArea($('#areaSelect').val());
   deviceArea.acuList.push(tempDevice);
-  
+
   var date = new Date();
 
   //function call to add the device to the stored json of devices
@@ -226,6 +239,29 @@ function addPolicy() {
   var policyArea = findArea($('#policyArea').val());
   var policyACU = findACU($('#policyDevice').val(), policyArea);
   policyACU.addPolicy(tempPolicy);
+}
+
+//function to remove a device
+function removeDevice() {
+  var index = removeACUArea.acuList.indexOf(removeACU);
+  if (index > -1) {
+    removeACUArea.acuList.splice(index, 1);
+  }
+  $.getJSON("./json/devices.json", function(json) {
+    for (var i = 0; i < json.tableData.length; i++){
+      if(removeACU.acuName == json.tableData[i][1]){
+        delete json.tableData[i]; //this part is not working yet and needs to be modified
+      }
+    }
+    removeACU = '';
+    removeACUArea = '';
+  });
+  $('#deviceSelect').empty();
+  $('#deviceSelect').append('<option value=\"none\" selected>Select a Device</option>');
+  for (var i = 0; i < removeACUArea.acuList.length; i++) {
+    var device = removeACUArea.acuList[i];
+    $('#deviceSelect').append('<option value="' + device.acuName + '">' + device.acuName +'</option>');
+  }
 }
 
 //Function to construct the NDF file for a user network
@@ -292,37 +328,32 @@ $('#add-policy-button').click(function() {
 });
 
 $('#remove-device-button').click(function() {
+  if (areaList.length == 0) {
+    //e.preventDefault();
+    alert("No devices have been created. Please create one");
+  }
+  else {
     $('#remove-device-modal').modal({
       focus: true
     });
+  }
 });
 
-//event fires upon adding a device
-$('#removeDeviceForm').submit(function(e){
-  e.preventDefault(); //prevent form from redirect
-  removeDevice();
+//event triggered by selecting an area in remove device modal
+$('#areaSelect2').change(function() {
+  $('#deviceSelect').empty();
+  $('#deviceSelect').append('<option value=\"none\" selected>Select a Device</option>');
+  removeACUArea = findArea(this.options[this.selectedIndex].value);
+  for (var i = 0; i < removeACUArea.acuList.length; i++) {
+    var device = removeACUArea.acuList[i];
+    $('#deviceSelect').append('<option value="' + device.acuName + '">' + device.acuName +'</option>');
+  }
 });
 
-function removeDevice() {
-  $('#areaSelect2').onselect()=function(){
-	  console.log($('#areaSelect2').val());
-	  $('#deviceSelect').html("");
-	  var areaSelected = findArea($('#areaSelect2').val());
-	  for (var i = 0; i < areaSelected.acuList.length; i++) {
-		  var device = areaSelected.acuList[i];
-		  $('#deviceSelect').append('<option value="' + device.acuName + '">' + device.acuName +'</option>');
-  }
-  }
-  var deviceArea = findArea(area);
-  var index1 = deviceArea.acuList.indexOf(device);
-  var index2 = deviceList.indexOf(device);
-  if (index1 > -1) {
-    deviceArea.acuList.splice(index1, 1);
-  }
-  if (index2 > -1) {
-    deviceList.splice(index2, 1);
-  }
-}
+//event triggered by selecting an area in remove device modal
+$('#deviceSelect').change(function() {
+  removeACU = findACU(this.options[this.selectedIndex].value, removeACUArea);
+});
 
 //Finds a created area in the list of areas
 function findArea(name) {
