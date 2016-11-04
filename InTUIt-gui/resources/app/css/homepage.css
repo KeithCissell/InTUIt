@@ -43,6 +43,12 @@ while being responsive to its conainer */
   float: right;
 }
 
+.collapse {
+	position: relative !important;
+	width: 80px;
+	right: 10px;
+}
+
 /* Class to remove margins */
 .no-margin {
 	margin: 0;
